@@ -7,10 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Login{% endblock %}</title>
 
-        <link rel="stylesheet" href="{% static 'css/boostrap.min.css' %}" />
-        <link rel="stylesheet" href="{% static 'admin/ %} {{ asset('/css/font-awesome.min.css') }}" />
-        <link rel="stylesheet" href="{{ asset('/css/AdminLTE.min.css') }}" />
-        <link rel="stylesheet" href="{{ asset('/css/blue.css') }}" />
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/AdminLTE.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/blue.css' %}" />
         {% block stylesheets %}{% endblock %}
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,28 +19,23 @@
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}" />
 
     </head>
     <body class="hold-transition login-page">
 
         <div class="login-box">
             <div class="login-logo">
-              <a href="{{path('homepage')}}">
-                  {{ systemNameLong|raw }}
+              <a href="#">
+                  System Long Name
               </a>
             </div>
-
-            {% if error %}
-                <div class="callout callout-danger">{{ error.message }}</div>
-            {% endif %}
-            {{ include('elements/flash.html.twig') }}
 
             <!-- /.login-logo -->
             <div class="login-box-body">
 
                 <div id="login_main" style="text-align:center; margin-top:25px;">
-                    <a href="{{ login_url }}"><img src="{{ asset('images/EVE_SSO_Login_Buttons_Large_Black.png') }}"/></a>
+                    <a href="{% url "social:begin" "eveonline" %}"><img src="{% static 'images/EVE_SSO_Login_Buttons_Large_Black.png'%}"/></a>
                     <hr />
                     <p style="margin-top:10px;">
                         Eve SSO is used only to verify your identity and Corporation/Alliance affiliation
@@ -57,10 +52,7 @@
       <!-- /.login-box -->
         {% block body %}{% endblock %}
 
-        <script src="{{ asset('/js/jQuery-2.1.4.min.js') }}"></script>
-        <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('/js/icheck.min.js') }}"></script>
+        <script src="{% static 'js/jQuery-2.1.4.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
     </body>
 </html>
-
-<a href="{% url "social:begin" "eveonline" %}">Eve Online</a>
