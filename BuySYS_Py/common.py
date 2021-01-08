@@ -1,6 +1,7 @@
 import os
 import sys
 from pathlib import Path
+from .branding import *
 
 # http://localhost:8000/oidc/eveonline/complete
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -56,7 +57,7 @@ TEMPLATES = [
 ]
 
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.eveonline.EVEOnlineOAuth2',
+    'apps.bg_eveonline_auth.backends.EVEOnlineOAuth2v2',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -79,7 +80,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'GMT'
 
 USE_I18N = True
 
@@ -95,6 +96,6 @@ STATICFILES_DIRS = [
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 # SOCIAL_AUTH_POSTGRES_JSONFIELD = True
-SOCIAL_AUTH_EVEONLINE_KEY = '63a8a4affe664e7aaf5443e3bf384bc7'
-SOCIAL_AUTH_EVEONLINE_SECRET = 'wx4PQ7YRsaDbLF6mkQt4lAhLD903cIyIlx2BnvVj'
+SOCIAL_AUTH_EVEONLINEV2_KEY = '4ad43d35704a4a55bb2c95c644d68e8e'
+SOCIAL_AUTH_EVEONLINEV2_SECRET = 'entLVHFHcU1b4raTcGlEroaUf7Gq49nkpbn3AUXu'
 SOCIAL_AUTH_CLEAN_USERNAMES = False

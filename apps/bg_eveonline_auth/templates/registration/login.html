@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load general_tags %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -27,7 +27,7 @@
         <div class="login-box">
             <div class="login-logo">
               <a href="#">
-                  System Long Name
+                  {% get_setting 'SITE_TITLE_HTML' %}
               </a>
             </div>
 
@@ -35,7 +35,7 @@
             <div class="login-box-body">
 
                 <div id="login_main" style="text-align:center; margin-top:25px;">
-                    <a href="{% url "social:begin" "eveonline" %}"><img src="{% static 'images/EVE_SSO_Login_Buttons_Large_Black.png'%}"/></a>
+                    <a href="{% url "social:begin" "eveonlinev2" %}"><img src="{% static 'images/EVE_SSO_Login_Buttons_Large_Black.png'%}"/></a>
                     <hr />
                     <p style="margin-top:10px;">
                         Eve SSO is used only to verify your identity and Corporation/Alliance affiliation

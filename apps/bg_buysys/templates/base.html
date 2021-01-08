@@ -1,11 +1,12 @@
 {% load static %}
+{% load general_tags %}
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8"/>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>{% block title %}{{ systemTabName }}{% endblock %}</title>
+    <title>{% block title %}{% endblock %} - {% get_setting 'SITE_TITLE_PLAIN' %}</title>
 
 
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
@@ -80,7 +81,7 @@
 
     <div class="content-wrapper">
         <div class="container">
-
+            <p>Tag: {% get_setting 'TEST_SETTING' %}</p>
             {% block body %}{% endblock %}
 
         </div>

@@ -1,7 +1,9 @@
+{% load general_tags %}
+
 <nav class="navbar navbar-static-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <a href="#" class="navbar-brand"><i class="fa fa-shopping-basket" aria-hidden="true"></i> <b>Buy</b>SYS</a>
+            <a href="#" class="navbar-brand"><i class="fa fa-shopping-basket" aria-hidden="true"></i> {% get_setting 'SITE_TITLE_HTML' %}</a>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                 <i class="fa fa-bars"></i>
             </button>
