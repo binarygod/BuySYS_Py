@@ -99,3 +99,24 @@ SOCIAL_AUTH_URL_NAMESPACE = 'social'
 SOCIAL_AUTH_EVEONLINEV2_KEY = '4ad43d35704a4a55bb2c95c644d68e8e'
 SOCIAL_AUTH_EVEONLINEV2_SECRET = 'entLVHFHcU1b4raTcGlEroaUf7Gq49nkpbn3AUXu'
 SOCIAL_AUTH_CLEAN_USERNAMES = False
+
+AUTH_USER_MODEL = 'bg_eveonline_auth.EveUser'
+
+SOCIAL_AUTH_PIPELINE = (
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.auth_allowed',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.user.get_username',
+    # 'social_core.pipeline.user.create_user',
+    'bg_eveonline_auth.backends.create_user',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+)
+
+# CCP ESI Endpoints
+ESI_UNIVERSE_NAME_SEARCH = '/v3/universe/names/'
+ESI_GET_CORPORATION_HISTORY = '/v1/characters/{character_id}/corporationhistory/'
+ESI_GET_CORPORATION = '/v4/corporations/{corporation_id}/'
+ESI_GET_CHARACTER = '/v4/characters/{character_id}/'
